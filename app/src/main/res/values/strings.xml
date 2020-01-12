@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">Baret 21</string>
+    <string name="app_name">Baret 21 App</string>
+    <string name="title_activity_pengurus">Pengurus</string>
+    <string name="title_activity_tentang">Tentang Baret21</string>
+    <string name="jd_susunan">Susunan Pengurus 2017-2020</string>
+    <string name="isi_susunan">Ketua : Bimo
+        \nWakil Ketua : Najib
+        \nSekertaris I : Sari
+        \nSekertaris II : Myta
+        \nBendahara I : Nafi
+        \nBendahara II : Mina
+    </string>
+    <string name="isi_tentang"><b>BARET 21</b> adalah kependekan dari Bala Remaja Jlatren RW 21
+        \nYaitu sebuah organisasi kepemudaan milik Desa Jlatren RW 21.</string>
+    <string name="jd_tentang">Tentang Baret 21</string>
+    <string name="about">Baret 21 App Version 1.0</string>
 </resources>

@@ -9,9 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.najibun.nim175410171.AppBaret21.SplashScreenActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+        <activity
+            android:name=".TentangActivity"
+            android:label="@string/title_activity_tentang"
+            android:parentActivityName=".MenuUtama"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.najibun.nim175410171.AppBaret21.MenuUtama" />
+        </activity>
+        <activity
+            android:name=".Pengurus"
+            android:label="@string/title_activity_pengurus"
+            android:parentActivityName=".MenuUtama"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.najibun.nim175410171.AppBaret21.MenuUtama" />
+        </activity>
+        <activity
+            android:name=".SplashScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,17 +37,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.najibun.nim175410171.AppBaret21.MainActivity"
-            android:launchMode="singleTop">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            android:name=".MenuUtama"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".MenuUtama">
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name="com.najibun.nim175410171.AppBaret21.AddEditNoteActivity"
-            android:parentActivityName="com.najibun.nim175410171.AppBaret21.MainActivity"></activity>
+            android:name=".AddEditNoteActivity"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

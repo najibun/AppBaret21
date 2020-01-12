@@ -1,12 +1,15 @@
 package com.najibun.nim175410171.AppBaret21
 
 import android.app.Activity
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -14,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.najibun.nim175410171.AppBaret21.catatan.Note
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_pengurus.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         buttonAddNote.setOnClickListener {
             startActivityForResult(
@@ -57,6 +62,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                //showDialog()
                 noteViewModel.delete(adapter.getNoteAt(viewHolder.adapterPosition))
                 Toast.makeText(baseContext, "Catatan dihapus!", Toast.LENGTH_SHORT).show()
             }
@@ -74,6 +80,19 @@ class MainActivity : AppCompatActivity() {
                 startActivityForResult(intent, EDIT_NOTE_REQUEST)
             }
         })
+
+        //actionbar
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Daftar Acara"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean{
+        super.onBackPressed()
+        return true
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -84,8 +103,9 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
             R.id.delete_all_notes -> {
-                noteViewModel.deleteAllNotes()
-                Toast.makeText(this, "Semua sudah dihapus!", Toast.LENGTH_SHORT).show()
+                showDialog()
+//                noteViewModel.deleteAllNotes()
+//                Toast.makeText(this, "Semua sudah dihapus!", Toast.LENGTH_SHORT).show()
                 true
             }
             else -> {
@@ -123,4 +143,56 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Catatan tidak disimpan!", Toast.LENGTH_SHORT).show()
         }
     }
+    // Method to show an alert dialog with yes, no and cancel button
+    private fun showDialog(){
+        // Late initialize an alert dialog object
+        lateinit var dialog: AlertDialog
+
+
+        // Initialize a new instance of alert dialog builder object
+        val builder = AlertDialog.Builder(this)
+
+        // Set a title for alert dialog
+        builder.setTitle("Yakin untuk Hapus Semua ???")
+
+        // Set a message for alert dialog
+        builder.setMessage("Ini akan menghapus semua data, dan tidak bisa dikembalikan.")
+
+
+        // On click listener for dialog buttons
+        val dialogClickListener = DialogInterface.OnClickListener{ _, which ->
+            when(which){
+                DialogInterface.BUTTON_POSITIVE -> toast("Yes, Dihapus!")
+                DialogInterface.BUTTON_NEGATIVE -> toast("No button clicked")
+                DialogInterface.BUTTON_NEUTRAL -> toast("Cancel button clicked.")
+            }
+        }
+
+
+        // Set the alert dialog positive/yes button
+        builder.setPositiveButton("YES"){dialog, which ->
+        noteViewModel.deleteAllNotes()
+        Toast.makeText(this, "Semua sudah dihapus!", Toast.LENGTH_SHORT).show()
+        }
+
+
+        // Set the alert dialog negative/no button
+        builder.setNegativeButton("NO",dialogClickListener)
+
+        // Set the alert dialog neutral/cancel button
+        builder.setNeutralButton("CANCEL",dialogClickListener)
+
+
+        // Initialize the AlertDialog using builder object
+        dialog = builder.create()
+
+        // Finally, display the alert dialog
+        dialog.show()
+    }
+    // Extension function to show toast message
+    fun Context.toast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
 }
+

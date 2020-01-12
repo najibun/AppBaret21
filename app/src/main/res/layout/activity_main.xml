@@ -11,7 +11,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/lightGray"
+        android:background="#C5CAE9"
         tools:itemCount="5"
         tools:listitem="@layout/note_item" />
 
@@ -19,7 +19,7 @@
         android:id="@+id/buttonAddNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_add_black_24dp"
+        android:src="@drawable/ic_add_white_24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:layout_gravity="bottom|right"/>

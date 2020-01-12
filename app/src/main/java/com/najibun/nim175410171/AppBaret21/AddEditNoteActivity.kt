@@ -11,10 +11,10 @@ import kotlinx.android.synthetic.main.activity_add_note.*
 
 class AddEditNoteActivity : AppCompatActivity() {
     companion object {
-        const val EXTRA_ID = "com.piusanggoro.notesapp.EXTRA_ID"
-        const val EXTRA_JUDUL = "com.piusanggoro.notesapp.EXTRA_JUDUL"
-        const val EXTRA_DESKRIPSI = "com.piusanggoro.notesapp.EXTRA_DESKRIPSI"
-        const val EXTRA_PRIORITAS = "com.piusanggoro.notesapp.EXTRA_PRIORITAS"
+        const val EXTRA_ID = "com.najibun.nim175410171.AppBaret21.EXTRA_ID"
+        const val EXTRA_JUDUL = "com.najibun.nim175410171.AppBaret21.EXTRA_JUDUL"
+        const val EXTRA_DESKRIPSI = "com.najibun.nim175410171.AppBaret21.EXTRA_DESKRIPSI"
+        const val EXTRA_PRIORITAS = "com.najibun.nim175410171.AppBaret21.EXTRA_PRIORITAS"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,9 +22,9 @@ class AddEditNoteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_note)
 
         number_picker_priority.minValue = 1
-        number_picker_priority.maxValue = 5
+        number_picker_priority.maxValue = 12
 
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_cancel_black_24dp)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_cancel_white_24dp)
 
         if (intent.hasExtra(EXTRA_ID)) {
             title = "Edit Catatan"
