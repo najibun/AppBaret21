@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 //showDialog()
                 noteViewModel.delete(adapter.getNoteAt(viewHolder.adapterPosition))
-                Toast.makeText(baseContext, "Catatan dihapus!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, "Kegiatan dihapus!", Toast.LENGTH_SHORT).show()
             }
         }
         ).attachToRecyclerView(recycler_view)
@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         //actionbar
         val actionbar = supportActionBar
         //set actionbar title
-        actionbar!!.title = "Daftar Acara"
+        actionbar!!.title = "Daftar Kegiatan"
         //set back button
         actionbar.setDisplayHomeAsUpEnabled(true)
         actionbar.setDisplayHomeAsUpEnabled(true)
@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
                 data.getIntExtra(AddEditNoteActivity.EXTRA_PRIORITAS, 1)
             )
             noteViewModel.insert(newNote)
-            Toast.makeText(this, "Catatan disimpan!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Kegaitan disimpan!", Toast.LENGTH_SHORT).show()
         } else if (requestCode == EDIT_NOTE_REQUEST && resultCode == Activity.RESULT_OK) {
             val id = data?.getIntExtra(AddEditNoteActivity.EXTRA_ID, -1)
 
@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity() {
             updateNote.id = data.getIntExtra(AddEditNoteActivity.EXTRA_ID, -1)
             noteViewModel.update(updateNote)
         } else {
-            Toast.makeText(this, "Catatan tidak disimpan!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Kegiatan tidak disimpan!", Toast.LENGTH_SHORT).show()
         }
     }
     // Method to show an alert dialog with yes, no and cancel button

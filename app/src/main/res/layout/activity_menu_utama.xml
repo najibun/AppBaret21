@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp" >
         <ImageView
+            android:layout_gravity="center"
             android:layout_weight="3"
             android:src="@drawable/banner"
             android:layout_width="wrap_content"
@@ -60,8 +61,7 @@
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textSize="20dp"
-                android:text="Susunan
-                Pengurus"
+                android:text="@string/tv_susunan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -86,8 +86,7 @@
                 android:gravity="center"
                 android:textSize="20dp"
                 android:textColor="#fff"
-                android:text="Tentang
-                Baret 21"
+                android:text="@string/tv_urus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -112,7 +111,7 @@
             android:gravity="center_vertical"
             android:textSize="20dp"
             android:textColor="#fff"
-            android:text="Daftar Acara"
+            android:text="Daftar Kegiatan"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
     </LinearLayout>

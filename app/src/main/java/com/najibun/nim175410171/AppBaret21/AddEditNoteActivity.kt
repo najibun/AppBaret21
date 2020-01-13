@@ -27,12 +27,12 @@ class AddEditNoteActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_cancel_white_24dp)
 
         if (intent.hasExtra(EXTRA_ID)) {
-            title = "Edit Catatan"
+            title = "Edit Kegiatan"
             edit_text_title.setText(intent.getStringExtra(EXTRA_JUDUL))
             edit_text_description.setText(intent.getStringExtra(EXTRA_DESKRIPSI))
             number_picker_priority.value = intent.getIntExtra(EXTRA_PRIORITAS, 1)
         } else {
-            title = "Tambah Catatan"
+            title = "Tambah Kegiatan"
         }
     }
 
@@ -53,7 +53,7 @@ class AddEditNoteActivity : AppCompatActivity() {
 
     private fun saveNote() {
         if (edit_text_title.text.toString().trim().isBlank() || edit_text_description.text.toString().trim().isBlank()) {
-            Toast.makeText(this, "Catatan kosong!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Kegiatan kosong!", Toast.LENGTH_SHORT).show()
             return
         }
 
